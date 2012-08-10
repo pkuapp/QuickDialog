@@ -48,4 +48,6 @@
 
 - (QSection *)sectionWithKey:(NSString *)key;
 - (QElement *)elementWithKey:(NSString *)string;
+
+- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller withStyle:(UITableViewCellStyle)cellStyle;
 @end

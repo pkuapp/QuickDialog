@@ -22,6 +22,11 @@
     return self;
 }
 
+- (QTableViewCell *)initWithReuseIdentifier:(NSString *)string  withStyle:(UITableViewCellStyle)cellStyle {
+    self = [super initWithStyle:cellStyle reuseIdentifier:string];
+    return self;
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];

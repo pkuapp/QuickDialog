@@ -57,6 +57,15 @@
     return cell;
 }
 
+- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller withStyle:(UITableViewCellStyle)cellStyle {
+    UITableViewCell *cell = [super getCellForTableView:tableView controller:controller withStyle:cellStyle];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    if (_title!= nil)
+        cell.textLabel.text = _title;
+    return cell;
+}
+
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
     [super selected:tableView controller:controller indexPath:path];
 

@@ -47,6 +47,7 @@
 - (QElement *)initWithKey:(NSString *)key;
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller;
+- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller withStyle:(UITableViewCellStyle)cellStyle;
 
 - (void)handleElementSelected:(QuickDialogController *)controller;
 

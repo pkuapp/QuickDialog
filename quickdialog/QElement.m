@@ -62,6 +62,23 @@
     return cell;
 }
 
+- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller withStyle:(UITableViewCellStyle)cellStyle {
+    QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
+    if (cell == nil){
+        cell = [[QTableViewCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key] withStyle:cellStyle];
+    }
+	
+    cell.textLabel.text = nil;
+    cell.detailTextLabel.text = nil;
+    cell.imageView.image = nil;
+	
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.showsReorderControl = YES;
+    cell.accessoryView = nil;
+    cell.labelingPolicy = _labelingPolicy;
+    return cell;
+}
+
 - (void)handleElementSelected:(QuickDialogController *)controller {
     if (_onSelected!= nil)
           _onSelected();

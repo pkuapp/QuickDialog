@@ -56,6 +56,20 @@
     return cell;
 }
 
+- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller withStyle:(UITableViewCellStyle)cellStyle {
+    QTableViewCell *cell = (QTableViewCell *) [super getCellForTableView:tableView controller:controller withStyle:cellStyle];
+    cell.accessoryType = _accessoryType== (int) nil ? UITableViewCellAccessoryNone : _accessoryType;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	
+    cell.textLabel.text = _title;
+    cell.detailTextLabel.text = [_value description];
+    cell.imageView.image = _image;
+    cell.accessoryType = self.sections!= nil || self.controllerAction!=nil ? (_accessoryType != (int) nil ? _accessoryType : UITableViewCellAccessoryDisclosureIndicator) : UITableViewCellAccessoryNone;
+    cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
+	
+    return cell;
+}
+
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
     [super selected:tableView controller:controller indexPath:path];
 }
